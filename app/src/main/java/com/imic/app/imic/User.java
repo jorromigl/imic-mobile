@@ -6,7 +6,7 @@ import java.util.HashSet;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 
-public abstract class User extends Actor {
+public class User extends Actor {
 
 	
 	private String referenceNumber;

@@ -95,14 +95,14 @@ public class LoginActivity extends AbstractAsyncActivity {
     // ***************************************
     // Private methods
     // ***************************************
-    private void displayResponse(Actor result) {
+    private void displayResponse(UserWrapper result) {
         Toast.makeText(this, result.getId(), Toast.LENGTH_LONG).show();
     }
 
     // ***************************************
     // Private classes
     // ***************************************
-    private class FetchSecuredResourceTask extends AsyncTask<Void, Void, Actor> {
+    private class FetchSecuredResourceTask extends AsyncTask<Void, Void, UserWrapper> {
 
         private String username;
 
@@ -121,7 +121,7 @@ public class LoginActivity extends AbstractAsyncActivity {
         }
 
         @Override
-        protected Actor doInBackground(Void... params) {
+        protected UserWrapper doInBackground(Void... params) {
             final String url = getString(R.string.base_uri)
                     + "/rest/login.do";
             // final String url = getString(R.string.base_uri);
@@ -147,9 +147,9 @@ public class LoginActivity extends AbstractAsyncActivity {
             try {
                 // Make the network request
                 Log.d(TAG, url);
-                ResponseEntity<Actor> response = restTemplate.exchange(url,
+                ResponseEntity<UserWrapper> response = restTemplate.exchange(url,
                         HttpMethod.POST, new HttpEntity<Object>(requestHeaders),
-                        Actor.class);
+                        UserWrapper.class);
                 return response.getBody();
 
             } catch (HttpMessageNotReadableException e) {
@@ -166,7 +166,7 @@ public class LoginActivity extends AbstractAsyncActivity {
         }
 
         @Override
-        protected void onPostExecute(Actor result) {
+        protected void onPostExecute(UserWrapper result) {
 //			dismissProgressDialog();
 //			displayResponse(result);
             dismissProgressDialog();
@@ -177,7 +177,7 @@ public class LoginActivity extends AbstractAsyncActivity {
                 }
                 else {
                     Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    intent.putExtra("actor", result);
+                    intent.putExtra("user", result);
                     intent.putExtra("user", username);
                     intent.putExtra("password", password);
                     startActivity(intent);

@@ -10,7 +10,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 
-public abstract class Actor extends DomainEntity {
+public class Actor extends DomainEntity {
 
 	private String name;
 	private String surname;
