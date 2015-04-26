@@ -1,10 +1,6 @@
 package com.imic.app.imic;
 
-import java.io.IOException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
+
 import java.util.Collections;
 
 import org.springframework.http.HttpAuthentication;
@@ -158,13 +154,13 @@ public class LoginActivity extends AbstractAsyncActivity {
 
             } catch (HttpMessageNotReadableException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Actor();
+                return null;
             } catch (HttpClientErrorException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Actor();
+                return null;
             } catch (ResourceAccessException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Actor();
+                return null;
             }
 
         }

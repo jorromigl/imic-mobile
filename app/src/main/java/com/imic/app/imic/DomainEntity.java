@@ -8,7 +8,7 @@
  * 
  */
 
-package com.benefits.app;
+package com.imic.app.imic;
 
 import java.io.Serializable;
 
