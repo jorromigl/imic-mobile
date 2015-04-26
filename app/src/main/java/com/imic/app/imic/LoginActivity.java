@@ -99,14 +99,14 @@ public class LoginActivity extends AbstractAsyncActivity {
     // ***************************************
     // Private methods
     // ***************************************
-    private void displayResponse(Plan result) {
+    private void displayResponse(Actor result) {
         Toast.makeText(this, result.getId(), Toast.LENGTH_LONG).show();
     }
 
     // ***************************************
     // Private classes
     // ***************************************
-    private class FetchSecuredResourceTask extends AsyncTask<Void, Void, Plan> {
+    private class FetchSecuredResourceTask extends AsyncTask<Void, Void, Actor> {
 
         private String username;
 
@@ -125,7 +125,7 @@ public class LoginActivity extends AbstractAsyncActivity {
         }
 
         @Override
-        protected Plan doInBackground(Void... params) {
+        protected Actor doInBackground(Void... params) {
             final String url = getString(R.string.base_uri)
                     + "/rest/login.do";
             // final String url = getString(R.string.base_uri);
@@ -151,26 +151,26 @@ public class LoginActivity extends AbstractAsyncActivity {
             try {
                 // Make the network request
                 Log.d(TAG, url);
-                ResponseEntity<Plan> response = restTemplate.exchange(url,
+                ResponseEntity<Actor> response = restTemplate.exchange(url,
                         HttpMethod.POST, new HttpEntity<Object>(requestHeaders),
-                        Plan.class);
+                        Actor.class);
                 return response.getBody();
 
             } catch (HttpMessageNotReadableException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Plan();
+                return new Actor();
             } catch (HttpClientErrorException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Plan();
+                return new Actor();
             } catch (ResourceAccessException e) {
                 Log.e(TAG, e.getLocalizedMessage(), e);
-                return new Plan();
+                return new Actor();
             }
 
         }
 
         @Override
-        protected void onPostExecute(Plan result) {
+        protected void onPostExecute(Actor result) {
 //			dismissProgressDialog();
 //			displayResponse(result);
             dismissProgressDialog();
@@ -180,8 +180,8 @@ public class LoginActivity extends AbstractAsyncActivity {
                     onCancelled();
                 }
                 else {
-                    Intent intent = new Intent(LoginActivity.this, SelectActivity.class);
-                    intent.putExtra("plan", result);
+                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                    intent.putExtra("actor", result);
                     intent.putExtra("user", username);
                     intent.putExtra("password", password);
                     startActivity(intent);

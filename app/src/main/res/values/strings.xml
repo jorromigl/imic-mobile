@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">IMIC</string>
+    <string name="submit">Acceso</string>
+    <string name="login">Login</string>
+    <string name="loading">Loading, please wait</string>
+    <string name="base_uri"><a ref= "https://benefits.cloud.hostnet.nl"/>http://imic-ispp.cloud.hostnet.nl/</string>
+    <string name="no_plan_error">ERROR cambio de vista desde login a menu activity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
