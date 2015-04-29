@@ -1,21 +1,6 @@
 package com.imic.app.imic;
 
 
-import java.util.Collections;
-
-import org.springframework.http.HttpAuthentication;
-import org.springframework.http.HttpBasicAuthentication;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.client.RestTemplate;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -35,7 +20,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import javax.net.ssl.SSLSocketFactory;
+import org.springframework.http.HttpAuthentication;
+import org.springframework.http.HttpBasicAuthentication;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Collections;
 
 public class LoginActivity extends AbstractAsyncActivity {
 
@@ -176,7 +174,7 @@ public class LoginActivity extends AbstractAsyncActivity {
                     onCancelled();
                 }
                 else {
-                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, ListIncidencesExpertActivity.class);
                     intent.putExtra("user", result);
                     intent.putExtra("user", username);
                     intent.putExtra("password", password);

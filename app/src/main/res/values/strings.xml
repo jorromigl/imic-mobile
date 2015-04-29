@@ -9,4 +9,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_list_incidences_expert">ListIncidencesExpert</string>
+    <string name="loadings">Loading...</string>
+    <string name="incidence">Incidence</string>
+    <string name="noIncidence">No hay incidencias</string>
+    <string name="back">Back</string>
 </resources>
